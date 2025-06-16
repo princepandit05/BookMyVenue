@@ -1,0 +1,701 @@
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  position: relative;
+}
+
+/* <====================================== Header/Top Component Styles ===========================================>*/
+.container {
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 6;
+  position: fixed;
+  width: 100%;
+  /* bottom:8rem ; */
+}
+
+.navabr-container {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  /* background-color: #1f6391; */
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+}
+
+.event-logo h4 {
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  max-width: 500px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.search-bar .search {
+  background-color: #3498db;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar .search:hover {
+  background-color: #2980b9;
+}
+
+.item-list {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+.item-list .link {
+  display: flex;
+  align-items: center;
+  /* gap: 0.5rem; */
+  text-decoration: none;
+  color: rgb(57, 56, 56);
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: black;
+}
+
+.item-list .link:hover {
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+/* Icon size */
+.item-list .icon {
+  font-size: 0.8rem; /* Adjust the size as needed */
+}
+
+.my {
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navabr-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .item-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .cards-container {
+    margin: 1rem;
+  }
+
+  .image-container {
+    height: 200px;
+  }
+}
+/* <====================================== Header/END Component Styles ===========================================>*/
+
+/* <====================================== Event Cards Styles ==================================>*/
+.cards-container {
+  margin: 2rem auto;
+  max-width: 900px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.image-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+}
+
+.details-container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.details-container span {
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+/* Animation for card loading */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cards-container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Event Cards Styles */
+
+.main-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  /* margin-top: 5px; */
+  padding-top: 4rem;
+}
+.cards-container {
+  margin: 2rem auto;
+  width: 300px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.image-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  /* transition: transform 0.3s ease; */
+}
+
+.image-container img:hover {
+  /* transform: scale(1.05); */
+}
+
+.details-container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.details-container span {
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+.text-container{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* Animation for card loading */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cards-container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.Eventcard-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  padding-top: 4rem;
+}
+.image {
+  width: 100%;
+  height: 50vh;
+  /* padding: 10px; */
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.image :hover {
+  transform: scale(1.05);
+}
+
+
+
+/* <====================================== Event Cards Styles ==================================>*/
+
+
+/* <===============================venue details SATRT==================================> */
+
+.venuedetail {
+  /* border: 2px solid #2980b9; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* width: 70%; */
+}
+.detail-container {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  /* align-items: center; */
+  /* background-color: #db3434; */
+  width: 90%;
+  margin-top: 5px;
+  background-color: rgb(255, 248, 248);
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.venue-image {
+    width: 40%;
+    border-radius: 5px;
+  }
+  .venuetext-detail {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    width: 55%;
+    gap: 10px;
+  }
+  .venuetext{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .venuetext-detail :nth-child(1) {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    /* margin-bottom: 4px; */
+  }
+  .venuetext-detail :nth-child(2) {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    /* margin-bottom: 4px; */
+  }
+  .venuetext-detail :nth-last-child(1) {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* <===============================venue details END==================================> */
+
+  /* <====================.Amenities START====================>*/
+
+.Amenities-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.Amenities {
+  background-color: #333;
+  padding: 4px;
+  /* border: 1px solid #333; */
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 0.8rem;
+}
+.amenities-container{
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    gap: 5px;
+    margin-top: 5px;
+}
+.amenities-box{
+    background-color: #333;
+    padding: 4px;
+    /* border: 1px solid #333; */
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 0.8rem;
+}
+ /* <====================.Amenities END====================>*/
+
+ /* <==================loading==============> */
+
+      .loading{
+        position: absolute;
+        top: 100px;
+      }
+ /* <==================loading==============> */
+ /* <==================No connection==============> */
+      
+    .Noconnection-container{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* color: white; */
+    }
+    .noconnection-text{
+      font-size: 20px;
+      position: absolute;
+      top: 300px;
+      background-color: rgba(207, 49, 49, 0.498);
+      padding: 50px;
+      border-radius: 10px;
+      z-index: 1;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      width: 70%;
+      text-align: center;
+    }
+ /* <==================No connection==============> */
+
+  /* <==================Event Details==============> */
+    .eventimage-container{
+      /* background-color: #e74c3c; */
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+  .images{
+    width: 70%;
+    gap: 10px;
+    border-radius: 10px;
+  }
+      
+   /* <=================Event end details==============> */
+
+
+   /* menu details */
+
+   .menu-details{
+    background-color:#fff8f8;
+    width: 90%;
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content: space-between; */
+    padding: 10px 50px 0px 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow:  0 4px 4px #0000001a;
+    padding-bottom: 5px;
+   }
+   .sectionpage{
+    /* border: 2px solid red; */
+    /* width: 45%; */
+    /* text-align: center; */
+    padding: 10px;
+    background-color: #DBD8E3;
+    box-shadow:  0 2px 6px #0000001a;
+    border-radius: 5px;
+    color: black;
+  
+   }
+   .sectin-data{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: center;
+   }
+   .menusection{
+    padding-top: 50px;
+   }
+   .icon{
+    padding: 5px;
+   }
+   
+   .list-item{
+    /* background-color: #2980b9; */
+    border-bottom: 1px solid rgb(181, 172, 172);
+    padding-top: 5px;
+   }
+   .menutype{
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    padding: 7px;
+    width: 15%;
+   }
+
+   .loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    border-radius: 50%;
+    background:
+      linear-gradient(0deg ,rgb(0 0 0/50%) 30%,#0000 0 70%,rgb(0 0 0/100%) 0) 50%/8% 100%,
+      linear-gradient(90deg,rgb(0 0 0/25%) 30%,#0000 0 70%,rgb(0 0 0/75% ) 0) 50%/100% 8%;
+    background-repeat: no-repeat;
+    animation: l23 1s infinite steps(12);
+  }
+  .loader::before,
+  .loader::after {
+     content: "";
+     grid-area: 1/1;
+     border-radius: 50%;
+     background: inherit;
+     opacity: 0.915;
+     transform: rotate(30deg);
+  }
+  .loader::after {
+     opacity: 0.83;
+     transform: rotate(60deg);
+  }
+  @keyframes l23 {
+    100% {transform: rotate(1turn)}
+  }
+
+  /* ============>Login - page ===================> */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 5rem; */
+ padding-top: 6rem;
+ padding-bottom: 4rem;
+  background-color: #f5f7fa;
+}
+
+.login-page {
+  background: linear-gradient(135deg, #ffffff, #f8f9fd);
+  width: 100%;
+  max-width: 35%;
+  padding: 2.5rem;
+  height: 70vh;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-left {
+  /* background: linear-gradient(135deg, #52c39f, #2980b9); */
+  height: 70vh;
+  width: 25%;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background-image: url('/image/login1.avif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.input-type {
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #f8f9fd;
+  transition: all 0.3s ease-in-out;
+}
+.input-type:focus {
+  border-color: #2980b9;
+  outline: none;
+  box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+
+.login-page h1 {
+  padding-bottom: 20px;
+  color: #2980b9;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.btn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 6px;
+  border: none;
+  background: linear-gradient(135deg, #2980b9, #1f6391);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #1f6391, #15527b);
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .login-page {
+      max-width: 45%;
+      padding: 2rem;
+  }
+  .login-left {
+      width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+      flex-direction: column;
+      align-items: center;
+  }
+  .login-left {
+      width: 100%;
+      height: 30vh;
+      border-radius: 10px 10px 0 0;
+  }
+  .login-page {
+      max-width: 90%;
+      height: auto;
+      padding: 2rem;
+      border-radius: 0 0 10px 10px;
+  }
+}
+
+/* ============================>upcomming-container*/
+
+.upcomming-container{
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6rem; */
+}
+.imageupcomming-images{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6rem;
+}
+
+.upcomming-images{
+  width: 80%;
+  /* height: 60vb; */
+  border-radius: 10px;
+}
+.upcomming-details{
+  padding-left: 8rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.upcommingtext{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+/* ===============================================> */
+/* ==============>Footer<================= */
+
+/* Add this to your existing CSS file */
+
+.Footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #040404;
+  color: #f9efef;
+  margin-top: 4rem;
+}
+
+.Footer h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.Footer h1 span {
+  color: #e74c3c;
+}
+
+.Footer h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-icons .icon {
+  font-size: 1.5rem;
+  color: #b3b0b0;
+  transition: color 0.3s ease;
+}
+
+.social-icons .icon:hover {
+  color: #3498db;
+}
+.book{
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid white;
+}

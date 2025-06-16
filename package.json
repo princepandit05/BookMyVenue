@@ -1,0 +1,28 @@
+{
+  "name": "eventhub",
+  "version": "1.0.0",
+  "description": "event booking",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest",
+    "start": "npx parcel index.html"
+  },
+  "author": "prince",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@tailwindcss/postcss": "^4.1.3",
+    "postcss": "^8.5.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.28.1",
+    "tailwindcss": "^4.1.3"
+  }
+}
