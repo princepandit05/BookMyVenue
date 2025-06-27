@@ -1,15 +1,15 @@
-const Eventcards = ({img,name,title,onClick,eventId}) => {
-    return (
-      <div className="cards-container" onClick={()=>onClick(eventId)} >
-        <div className="image-container">
-          <img src={img}></img>
-          </div>
-          <div className="details-container"  >
-            <span><a className="text-container">Venue :</a>{name}</span>
-            <span><a className="text-container">Title :</a> {title}</span>
-          </div>
+const Eventcards = ({ img, name, title, onClick, eventId }) => {
+  return (
+    <div className="card" onClick={() => onClick(eventId)}>
+      <div className="card__image-wrapper">
+        <img className="card__image" src={img} alt={title} />
       </div>
-    );
-  };
+      <div className="card__details">
+        <span><span className="card__label">Venue :</span> {name}</span>
+        <span><span className="card__label">Title :</span> {title}</span>
+      </div>
+    </div>
+  );
+};
 
-  export default Eventcards
+export default Eventcards;

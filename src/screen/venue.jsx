@@ -7,24 +7,21 @@ const Venue = () => {
   const [VenueEventcard, setVenueEventcard] = useState([]);
   const [filtervenuedata, setfiltervenuedata] = useState([]);
   const navgate = useNavigate();
-  const {filterText} = useOutletContext()
-
-  // console.log(filtervenuedata);
+  const { filterText } = useOutletContext();
 
   useEffect(() => {
     fetchEventData();
   }, []);
 
-  useEffect(()=>{
-    onSearchClick(filterText)
-  },[filterText])
+  useEffect(() => {
+    onSearchClick(filterText);
+  }, [filterText]);
 
   const onSearchClick = (searchtext) => {
-    const filtervenuedata = VenueEventcard.filter((item) =>
-      // console.log(item);
+    const filtered = VenueEventcard.filter((item) =>
       item.name.toLowerCase().includes(searchtext.toLowerCase())
     );
-    setfiltervenuedata(filtervenuedata);
+    setfiltervenuedata(filtered);
   };
 
   const fetchEventData = async () => {
@@ -40,9 +37,9 @@ const Venue = () => {
 
   return (
     <>
-      <div className="Eventcard-layout">
-        {filtervenuedata.length == 0 ? (
-          <div className="loader" ></div>
+      <div className="venue__card-layout">
+        {filtervenuedata.length === 0 ? (
+          <div className="loader"></div>
         ) : (
           filtervenuedata.map((item) => (
             <Venuepage

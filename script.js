@@ -13,6 +13,7 @@ import MenuAccordion from "./src/component/menuAccordion";
 import Login from "./src/screen/Login";
 import Footer from "./src/component/Footer";
 import Booking from "./src/screen/Upcomingbooking";
+import UserProfile from "./src/screen/UserProfile";
 
 const Div = document.querySelector("#root");
 const root = ReactDOM.createRoot(Div);
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path:"/UpcomingBookings",
         element:<Booking/>
+      },
+      {
+        path:"/userprofile",
+        element:<UserProfile/>
       }
     ],
   },

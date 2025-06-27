@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";  
+import { Link, useNavigate } from "react-router-dom";  
 import { BASE_URL } from "../../data";
 
 const OTPInput = ({ otp, setOtp }) => {
@@ -94,12 +94,12 @@ const Login = () => {
         },
         body: JSON.stringify({
           mobileNo: number,
-          otp: otp.join(''), // Convert array to string
+          otp: otp.join(''), 
         }),
       });
 
       const data = await response.json();
-      if (data.code === 200) {
+      if (data.message === "message") {
         window.alert("OTP Verified Successfully!");
         navigate("/"); 
         setislogin(ture)
@@ -119,6 +119,8 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="login-left">
+        
+          <Link className="link" to={"/userprofile"}>Create your profie</Link>
         <h3 className="image-text ">Welcome To </h3>
         <br />
         <h1>Book<span className="my">my</span>Venue</h1>

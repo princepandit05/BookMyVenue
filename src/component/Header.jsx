@@ -1,64 +1,60 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faBuilding, faInfoCircle, faCalendarAlt, faClipboardList, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faBuilding, faInfoCircle, faCalendarAlt, faClipboardList, faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const Header = ({ onSearchClick ,islogin }) => {
+const Header = ({ onSearchClick, islogin }) => {
   const [searchtext, setsearchtext] = useState("");
-  const [logdata, setlogdata] = useState("Login");
-  const [path, setpath] = useState("Login");
 
-  // const changeData = () => {
-  //   if (logdata === "Profile") {
-  //     setlogdata("Login");
-  //     setpath("Login");
-  //   } else {
-  //     setlogdata("Profile");
-  //     setpath("");
-  //   }
-  // };
-
-  console.log(islogin);
-  
   return (
-    <div className="container">
-      <div className="navabr-container">
-        <div className="event-logo">
-          <h4>Book<span className="my">my</span>Venue</h4>
-        </div>
-        <div
-          className="search-bar"
-          value={searchtext}
-          onChange={(ele) => setsearchtext(ele.target.value)}
-        >
-          <input type="text" id="input" placeholder="Search for event"></input>
-          <span className="search" onClick={() => onSearchClick(searchtext)}>
-            Search
-          </span>
+    <header className="header">
+      <div className="header__wrapper">
+        <div className="header__brand">
+          Book<span className="header__brand-accent">my</span>Venue
         </div>
 
-        <div className="item-list">
-          <Link className="link" to={"/"}>
-            <FontAwesomeIcon icon={faHome} className="icon" /> Home
-          </Link>
-          <Link className="link" to={"/Venue"}>
-            <FontAwesomeIcon icon={faBuilding} className="icon" /> Venue
-          </Link>
-          <span className="link">
-            <FontAwesomeIcon icon={faInfoCircle} className="icon" /> About
-          </span>
-          <Link className="link" to={"/UpcomingBookings"}>
-            <FontAwesomeIcon icon={faCalendarAlt} className="icon" /> Upcoming Bookings
-          </Link>
-          <span className="link">
-            <FontAwesomeIcon icon={faClipboardList} className="icon" /> My Booking
-          </span>
-          <Link className="link" to={`/${path}`} >
-            <FontAwesomeIcon icon={islogin ? "Profile" : "Login"} className="icon" /> {logdata}
-          </Link>
+        <div className="header__nav">
+          <div className="header__search">
+            <input
+              type="text"
+              className="header__search-input"
+              placeholder="Search venues..."
+              value={searchtext}
+              onChange={(e) => setsearchtext(e.target.value)}
+            />
+            <button 
+              className="header__search-button"
+              onClick={() => onSearchClick(searchtext)}
+            >
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
+          </div>
+
+          <nav className="header__links">
+            <Link className="header__link" to="/">
+              <FontAwesomeIcon icon={faHome} className="header__icon" />
+              Home
+            </Link>
+            <Link className="header__link" to="/Venue">
+              <FontAwesomeIcon icon={faBuilding} className="header__icon" />
+              Venues
+            </Link>
+            <Link className="header__link" to="/about">
+              <FontAwesomeIcon icon={faInfoCircle} className="header__icon" />
+              About
+            </Link>
+            <Link className="header__link" to="/UpcomingBookings">
+              <FontAwesomeIcon icon={faCalendarAlt} className="header__icon" />
+              Bookings
+            </Link>
+            <Link className="header__button" to={`/${islogin ? "MyAccount" : "Login"}`}>
+              <FontAwesomeIcon icon={faClipboardList} className="header__icon" />
+              {islogin ? "My Account" : "Login"}
+            </Link>
+          </nav>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

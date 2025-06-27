@@ -1,45 +1,30 @@
 import { useState } from "react";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 const MenuAccordion = ({ menutype, menuoption }) => {
-  const [Isopen, setIsopen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <div className="menu-details">
-        <section className="sectionpage">
-          <div className="sectin-data">
-            <span className="menutype">{menutype}</span>
-            <button onClick={() => setIsopen(!Isopen)}>
-              <span>
-                {Isopen ? (
-                  <div className="icon">
-                    <FontAwesomeIcon
-                      icon={faCaretDown}
-                      size="2x"
-                      padding="3px"
-                    />
-                  </div>
-                ) : (
-                  <div className="icon">
-                    {" "}
-                    <FontAwesomeIcon icon={faCaretUp} size="2x" padding="3px" />
-                  </div>
-                )}
-              </span>
+      <div className="accordion">
+        <section className="accordion__section">
+          <div className="accordion__header">
+            <span className="accordion__title">{menutype}</span>
+            <button className="accordion__toggle" onClick={() => setIsOpen(!isOpen)}>
+              <FontAwesomeIcon
+                icon={isOpen ? faCaretDown : faCaretUp}
+                size="2x"
+              />
             </button>
           </div>
-          {Isopen ? (
-            <div>
+          {isOpen && (
+            <ul className="accordion__list">
               {menuoption.map((ele) => (
-                <li className="list-item">{ele.name}</li>
+                <li key={ele.name} className="accordion__list-item">{ele.name}</li>
               ))}
-            </div>
-          ) : (
-            ""
+            </ul>
           )}
         </section>
       </div>
