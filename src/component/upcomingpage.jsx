@@ -1,16 +1,16 @@
-const Upcoming = ({ Image,Name,Description,TicketPrice,Maxlimit }) => {
+const Upcoming = ({ Image, Name, Description, TicketPrice, Maxlimit }) => {
   return (
     <>
-      <div className="upcomming-container">
-         <div className="imageupcomming-images">
-         <img className="upcomming-images" src={Image}></img>
-         </div>
-       
-        <div className="upcomming-details">
-        <span><span className="upcommingtext">Title :</span> {Name}</span>
-        <span> <span className="upcommingtext">Description :</span> {Description}</span>
-        <span><span className="upcommingtext">TicketPrice :</span> {TicketPrice}</span>
-        <span><span className="upcommingtext">Maxlimit : </span>{Maxlimit}</span>
+      <div className="upcoming__card">
+        <div className="upcoming__image-wrapper">
+          <img className="upcoming__image" src={Image} alt={Name} />
+        </div>
+
+        <div className="upcoming__details">
+          <span><span className="upcoming__label">Title:</span> {Name}</span>
+          <span><span className="upcoming__label">Description:</span> {Description}</span>
+          <span><span className="upcoming__label">Ticket Price:</span> {TicketPrice}</span>
+          <span><span className="upcoming__label">Max Limit:</span> {Maxlimit}</span>
         </div>
       </div>
     </>

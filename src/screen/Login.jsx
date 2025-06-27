@@ -1,10 +1,9 @@
 import { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";  
+import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../data";
 
 const OTPInput = ({ otp, setOtp }) => {
   const inputRefs = useRef([]);
-
 
   const handleChange = (e, index) => {
     const newOtp = [...otp];
@@ -17,30 +16,23 @@ const OTPInput = ({ otp, setOtp }) => {
   };
 
   const handleKeyUp = (e, index) => {
-    if (e.key === 'Backspace' && otp[index] === '' && index > 0) {
+    if (e.key === "Backspace" && otp[index] === "" && index > 0) {
       inputRefs.current[index - 1].focus();
     }
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+    <div className="otp-input">
       {otp.map((digit, index) => (
         <input
           key={index}
-          ref={(el) => inputRefs.current[index] = el}
+          ref={(el) => (inputRefs.current[index] = el)}
           type="text"
           maxLength="1"
           value={digit}
           onChange={(e) => handleChange(e, index)}
           onKeyUp={(e) => handleKeyUp(e, index)}
-          style={{
-            width: '40px',
-            height: '40px',
-            fontSize: '20px',
-            textAlign: 'center',
-            border: '1px solid #ccc',
-            borderRadius: '5px'
-          }}
+          className="otp-input__box"
         />
       ))}
     </div>
@@ -48,12 +40,12 @@ const OTPInput = ({ otp, setOtp }) => {
 };
 
 const Login = () => {
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
   const [number, setnumber] = useState("");
   const [errorMsg, seterrorMsg] = useState("");
   const [showOtp, setShowOtp] = useState(false);
-  const [otp, setOtp] = useState(['', '', '', '']); 
-  const [islogin,setislogin] = useState(false)
+  const [otp, setOtp] = useState(["", "", "", ""]);
+  const [islogin, setislogin] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -94,15 +86,17 @@ const Login = () => {
         },
         body: JSON.stringify({
           mobileNo: number,
-          otp: otp.join(''), 
+          otp: otp.join(""),
         }),
       });
-
+     
       const data = await response.json();
-      if (data.message === "message") {
+       console.log(data.message,"=================>")
+      if (data.message == "OTP verified Successfully") {
+
         window.alert("OTP Verified Successfully!");
-        navigate("/"); 
-        setislogin(ture)
+        navigate("/");
+        setislogin(true);
       } else {
         window.alert("Invalid OTP. Please try again.");
       }
@@ -117,33 +111,39 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-left">
-        
-          <Link className="link" to={"/userprofile"}>Create your profie</Link>
-        <h3 className="image-text ">Welcome To </h3>
-        <br />
-        <h1>Book<span className="my">my</span>Venue</h1>
+    <div className="login">
+      <div className="login__left">
+        <h3 className="login__subtitle">Welcome To</h3>
+        <h1 className="login__title">
+          Book<span className="login__highlight">my</span>Venue
+        </h1>
       </div>
-      <div className="login-page">
-        <h1>SIGN IN</h1>
+      <div className="login__right">
+        <h1 className="login__heading">SIGN IN</h1>
         <input
-          className="input-type"
+          className="login__input"
           type="text"
-          placeholder="Number"
+          placeholder="Enter 10-digit mobile number"
           value={number}
           onChange={handlenumberChange}
         />
-        {errorMsg && <p className="error">{errorMsg}</p>}
-        <button onClick={handleSubmit} className="btn">
+        {errorMsg && <p className="login__error">{errorMsg}</p>}
+        <button onClick={handleSubmit} className="login__btn">
           Request OTP
         </button>
+         <Link className="login__link" to={"/userprofile"}>
+          Create your profile
+        </Link>
 
         {showOtp && (
           <div>
-            <p>OTP sent to {number}, please enter the OTP</p>
+            <p className="login__otp-message">
+              OTP sent to {number}, please enter the OTP:
+            </p>
             <OTPInput otp={otp} setOtp={setOtp} />
-            <button onClick={verifyOtp} className="btn">Verify OTP</button>
+            <button onClick={verifyOtp} className="login__btn">
+              Verify OTP
+            </button>
           </div>
         )}
       </div>
